@@ -5,6 +5,8 @@ edition = "2021"
 authors = ["poohpooher <poohpooher@gmail.com>"]
 description = "A Tencent IM Rest API for Rust"
 license = "MIT"
+repository = "https://github.com/poohpooher/tencent_im_rs"
+documentation = "https://docs.rs/tencent_im_rs/latest/tencent_im_rs/"
 
 [lib]
 crate-type = ["lib"]
