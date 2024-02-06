@@ -18,4 +18,12 @@ impl UserTag {
             tags: tags.iter().map(|s| s.as_ref().to_string()).collect(),
         }
     }
+
+    pub fn to_account(&self) -> &str {
+        &self.to_account
+    }
+
+    pub fn tags(&self) -> &Vec<String> {
+        &self.tags
+    }
 }

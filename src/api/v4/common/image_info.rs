@@ -37,4 +37,50 @@ impl ImageInfo {
             url: url.as_ref().to_string(),
         }
     }
+
+    pub fn image_type(&self) -> &ImageType {
+        &self.image_type
+    }
+
+    pub fn size(&self) -> u32 {
+        self.size
+    }
+
+    pub fn width(&self) -> u32 {
+        self.width
+    }
+
+    pub fn height(&self) -> u32 {
+        self.height
+    }
+
+    pub fn url(&self) -> &str {
+        &self.url
+    }
+
+    pub fn set_image_type(&mut self, image_type: ImageType) -> &mut Self {
+        self.image_type = image_type;
+        self
+    }
+
+    pub fn set_size(&mut self, size: u32) -> &mut Self {
+        self.size = size;
+        self
+    }
+
+    pub fn set_width(&mut self, width: u32) -> &mut Self {
+        self.width = width;
+        self
+    }
+
+    pub fn set_height(&mut self, height: u32) -> &mut Self {
+        self.height = height;
+        self
+    }
+
+    pub fn set_url<S: AsRef<str>>(&mut self, url: S) -> &mut Self {
+        self.url = url.as_ref().to_string();
+        self
+    }
+
 }

@@ -6,25 +6,25 @@ use serde_with::skip_serializing_none;
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct ContactItem {
     #[serde(rename = "Type")]
-    pub conversation_type: ConversationType,
+    conversation_type: ConversationType,
 
     #[serde(rename = "To_Account")]
-    pub to_account: Option<String>,
+    to_account: Option<String>,
 
     #[serde(rename = "ToGroupId")]
-    pub to_group_id: Option<String>,
+    to_group_id: Option<String>,
 
     #[serde(rename = "StandardMark")]
-    pub standard_mark: Option<String>,
+    standard_mark: Option<String>,
 
     #[serde(rename = "CustomMark")]
-    pub custom_mark: Option<String>,
+    custom_mark: Option<String>,
 
     #[serde(rename = "ContactGroupId")]
-    pub contact_group_id: Option<Vec<u32>>,
+    contact_group_id: Option<Vec<u32>>,
 
     #[serde(rename = "Timestamp")]
-    pub timestamp: Option<u64>,
+    timestamp: Option<u64>,
 }
 
 impl ContactItem {
@@ -68,5 +68,33 @@ impl ContactItem {
     pub fn set_timestamp(&mut self, timestamp: Option<u64>) -> &mut Self {
         self.timestamp = timestamp;
         self
+    }
+
+    pub fn conversation_type(&self) -> &ConversationType {
+        &self.conversation_type
+    }
+
+    pub fn to_group_id(&self) -> Option<&str> {
+        self.to_group_id.as_deref()
+    }
+
+    pub fn to_account(&self) -> Option<&str> {
+        self.to_account.as_deref()
+    }
+
+    pub fn standard_mark(&self) -> Option<&str> {
+        self.standard_mark.as_deref()
+    }
+
+    pub fn custom_mark(&self) -> Option<&str> {
+        self.custom_mark.as_deref()
+    }
+
+    pub fn contact_group_id(&self) -> Option<&Vec<u32>> {
+        self.contact_group_id.as_ref()
+    }
+
+    pub fn timestamp(&self) -> Option<u64> {
+        self.timestamp
     }
 }

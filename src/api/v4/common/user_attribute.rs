@@ -22,4 +22,12 @@ impl UserAttribute {
                 .collect(),
         }
     }
+
+    pub fn to_account(&self) -> &str {
+        &self.to_account
+    }
+
+    pub fn attrs(&self) -> &HashMap<String, String> {
+        &self.attrs
+    }
 }

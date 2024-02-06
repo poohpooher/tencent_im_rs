@@ -19,4 +19,12 @@ impl MsgBody {
             msg_content,
         }
     }
+
+    pub fn msg_type(&self) -> &str {
+        &self.msg_type
+    }
+
+    pub fn msg_content(&self) -> &MsgContent {
+        &self.msg_content
+    }
 }

@@ -6,85 +6,79 @@ use serde_with::skip_serializing_none;
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct Group {
     #[serde(rename = "Type")]
-    pub group_type: Option<GroupType>,
+    group_type: Option<GroupType>,
 
     #[serde(rename = "Name")]
-    pub name: Option<String>,
+    name: Option<String>,
 
     #[serde(rename = "Introduction")]
-    pub introduction: Option<String>,
+    introduction: Option<String>,
 
     #[serde(rename = "Notification")]
-    pub notification: Option<String>,
+    notification: Option<String>,
 
     #[serde(rename = "FaceUrl")]
-    pub face_url: Option<String>,
+    face_url: Option<String>,
 
     #[serde(rename = "Owner_Account")]
-    pub owner_account: Option<String>,
+    owner_account: Option<String>,
 
     #[serde(rename = "GroupId")]
-    pub group_id: Option<String>,
+    group_id: Option<String>,
 
     #[serde(rename = "MaxMemberCount")]
-    pub max_member_count: Option<u32>,
+    max_member_count: Option<u32>,
 
     #[serde(rename = "ApplyJoinOption")]
-    pub apply_join_option: Option<ApplyJoinOption>,
+    apply_join_option: Option<ApplyJoinOption>,
 
     #[serde(rename = "AppDefinedData")]
-    pub app_defined_data: Option<Vec<KeyValuePascal>>,
+    app_defined_data: Option<Vec<KeyValuePascal>>,
 
     #[serde(rename = "MemberList")]
-    pub member_list: Option<Vec<Member>>,
+    member_list: Option<Vec<Member>>,
 
     #[serde(rename = "AppMemberDefinedData")]
-    pub app_member_defined_data: Option<Vec<KeyValuePascal>>,
+    app_member_defined_data: Option<Vec<KeyValuePascal>>,
 
     #[serde(rename = "SupportTopic")]
-    pub support_topic: Option<u32>,
+    support_topic: Option<u32>,
 
     #[serde(rename = "Appid")]
-    pub app_id: Option<u32>,
+    app_id: Option<u32>,
 
     #[serde(rename = "CreateTime")]
-    pub create_time: Option<u64>,
+    create_time: Option<u64>,
 
     #[serde(rename = "LastInfoTime")]
-    pub last_info_time: Option<u64>,
+    last_info_time: Option<u64>,
 
     #[serde(rename = "LastMsgTime")]
-    pub last_msg_time: Option<u64>,
+    last_msg_time: Option<u64>,
 
     #[serde(rename = "MaxMemberNum")]
-    pub max_member_num: Option<u32>,
+    max_member_num: Option<u32>,
 
     #[serde(rename = "MemberNum")]
-    pub member_num: Option<u32>,
+    member_num: Option<u32>,
 
     #[serde(rename = "MuteAllMember")]
-    pub mute_all_member: Option<String>,
+    mute_all_member: Option<String>,
 
     #[serde(rename = "NextMsgSeq")]
-    pub next_msg_seq: Option<u32>,
+    next_msg_seq: Option<u32>,
 
     #[serde(rename = "SelfInfo")]
-    pub self_info: Option<Member>,
+    self_info: Option<Member>,
 
     #[serde(rename = "GrossTopicNextMsgSeq")]
-    pub gross_topic_next_msg_seq: Option<u32>,
+    gross_topic_next_msg_seq: Option<u32>,
 
     #[serde(rename = "ErrorCode")]
-    pub error_code: Option<ErrorCode>,
+    error_code: Option<ErrorCode>,
 
     #[serde(rename = "ErrorInfo")]
-    pub error_info: Option<String>,
-}
-
-impl Default for Group {
-    fn default() -> Self {
-        Self::new()
-    }
+    error_info: Option<String>,
 }
 
 impl Group {
@@ -254,4 +248,106 @@ impl Group {
         self.error_info = error_info.map(|s| s.as_ref().to_string());
         self
     }
+
+    pub fn group_type(&self) -> Option<&GroupType> {
+        self.group_type.as_ref()
+    }
+
+    pub fn name(&self) -> Option<&str> {
+        self.name.as_ref().map(|s| s.as_str())
+    }
+
+    pub fn introduction(&self) -> Option<&str> {
+        self.introduction.as_ref().map(|s| s.as_str())
+    }
+
+    pub fn notification(&self) -> Option<&str> {
+        self.notification.as_ref().map(|s| s.as_str())
+    }
+
+    pub fn face_url(&self) -> Option<&str> {
+        self.face_url.as_ref().map(|s| s.as_str())
+    }
+
+    pub fn owner_account(&self) -> Option<&str> {
+        self.owner_account.as_ref().map(|s| s.as_str())
+    }
+
+    pub fn group_id(&self) -> Option<&str> {
+        self.group_id.as_ref().map(|s| s.as_str())
+    }
+
+    pub fn max_member_count(&self) -> Option<u32> {
+        self.max_member_count
+    }
+
+    pub fn apply_join_option(&self) -> Option<&ApplyJoinOption> {
+        self.apply_join_option.as_ref()
+    }
+
+    pub fn app_defined_data(&self) -> Option<&Vec<KeyValuePascal>> {
+        self.app_defined_data.as_ref()
+    }
+
+    pub fn member_list(&self) -> Option<&Vec<Member>> {
+        self.member_list.as_ref()
+    }
+
+    pub fn app_member_defined_data(&self) -> Option<&Vec<KeyValuePascal>> {
+        self.app_member_defined_data.as_ref()
+    }
+
+    pub fn support_topic(&self) -> Option<u32> {
+        self.support_topic
+    }
+
+    pub fn app_id(&self) -> Option<u32> {
+        self.app_id
+    }
+
+    pub fn create_time(&self) -> Option<u64> {
+        self.create_time
+    }
+
+    pub fn last_info_time(&self) -> Option<u64> {
+        self.last_info_time
+    }
+
+    pub fn last_msg_time(&self) -> Option<u64> {
+        self.last_msg_time
+    }
+
+    pub fn max_member_num(&self) -> Option<u32> {
+        self.max_member_num
+    }
+
+    pub fn member_num(&self) -> Option<u32> {
+        self.member_num
+    }
+
+    pub fn mute_all_member(&self) -> Option<&str> {
+        self.mute_all_member.as_ref().map(|s| s.as_str())
+    }
+
+    pub fn next_msg_seq(&self) -> Option<u32> {
+        self.next_msg_seq
+    }
+
+    pub fn self_info(&self) -> Option<&Member> {
+        self.self_info.as_ref()
+    }
+
+    pub fn gross_topic_next_msg_seq(&self) -> Option<u32> {
+        self.gross_topic_next_msg_seq
+    }
+
+    pub fn error_code(&self) -> Option<&ErrorCode> {
+        self.error_code.as_ref()
+    }
+
+    pub fn error_info(&self) -> Option<&str> {
+        self.error_info.as_ref().map(|s| s.as_str())
+    }
+
+
 }

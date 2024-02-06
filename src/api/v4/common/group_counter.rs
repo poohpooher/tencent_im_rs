@@ -5,10 +5,10 @@ use serde_with::skip_serializing_none;
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct GroupCounter {
     #[serde(rename = "Key")]
-    pub key: String,
+    key: String,
 
     #[serde(rename = "Value")]
-    pub value: u32,
+    value: u32,
 }
 
 impl GroupCounter {
@@ -22,5 +22,18 @@ impl GroupCounter {
     pub fn set_key<S: AsRef<str>>(&mut self, key: S) -> &mut Self {
         self.key = key.as_ref().to_string();
         self
+    }
+
+    pub fn set_value(&mut self, value: u32) -> &mut Self {
+        self.value = value;
+        self
+    }
+
+    pub fn key(&self) -> &str {
+        &self.key
+    }
+
+    pub fn value(&self) -> u32 {
+        self.value
     }
 }

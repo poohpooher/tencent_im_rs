@@ -26,12 +26,6 @@ pub struct Apns {
     subtitle: Option<String>,
 }
 
-impl Default for Apns {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 impl Apns {
     pub fn new() -> Self {
         Self {
@@ -79,4 +73,35 @@ impl Apns {
         self.subtitle = subtitle.map(|s| s.as_ref().to_string());
         self
     }
+
+    pub fn badge_mode(&self) -> Option<u32> {
+        self.badge_mode
+    }
+
+    pub fn title(&self) -> Option<&str> {
+        self.title.as_deref()
+    }
+
+    pub fn sub_title(&self) -> Option<&str> {
+        self.sub_title.as_deref()
+    }
+
+
+    pub fn image(&self) -> Option<&str> {
+        self.image.as_deref()
+    }
+
+    pub fn mutable_content(&self) -> Option<u32> {
+        self.mutable_content
+    }
+
+    pub fn sound(&self) -> Option<&str> {
+        self.sound.as_deref()
+    }
+
+    pub fn subtitle(&self) -> Option<&str> {
+        self.subtitle.as_deref()
+    }
+
+
 }

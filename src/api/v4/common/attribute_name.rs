@@ -25,11 +25,6 @@ pub struct AttributeName {
     #[serde(rename = "9")]
     nine: Option<String>,
 }
-impl Default for AttributeName {
-    fn default() -> Self {
-        Self::new()
-    }
-}
 
 impl AttributeName {
     pub fn new() -> Self {

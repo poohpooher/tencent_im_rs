@@ -6,22 +6,22 @@ use serde_with::skip_serializing_none;
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct Msg {
     #[serde(rename = "From_Account")]
-    pub from_account: String,
+    from_account: String,
 
     #[serde(rename = "To_Account")]
-    pub to_account: Option<String>,
+    to_account: Option<String>,
 
     #[serde(rename = "SendTime")]
-    pub send_time: u32,
+    send_time: u32,
 
     #[serde(rename = "MsgBody")]
-    pub msg_body: Vec<MsgBody>,
+    msg_body: Vec<MsgBody>,
 
     #[serde(rename = "Random")]
-    pub random: Option<u32>,
+    random: Option<u32>,
 
     #[serde(rename = "TopicId")]
-    pub topic_id: Option<String>,
+    topic_id: Option<String>,
 }
 
 impl Msg {
@@ -50,4 +50,29 @@ impl Msg {
         self.topic_id = topic_id.map(|s| s.as_ref().to_string());
         self
     }
+
+    pub fn from_account(&self) -> &str {
+        &self.from_account
+    }
+
+    pub fn to_account(&self) -> Option<&str> {
+        self.to_account.as_deref()
+    }
+
+    pub fn send_time(&self) -> u32 {
+        self.send_time
+    }
+
+    pub fn msg_body(&self) -> &Vec<MsgBody> {
+        &self.msg_body
+    }
+
+    pub fn random(&self) -> Option<u32> {
+        self.random
+    }
+
+    pub fn topic_id(&self) -> Option<&str> {
+        self.topic_id.as_deref()
+    }
+
 }

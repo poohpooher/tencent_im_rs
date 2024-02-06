@@ -24,12 +24,6 @@ pub struct OfflinePush {
     apns_info: Option<Apns>,
 }
 
-impl Default for OfflinePush {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 impl OfflinePush {
     pub fn new() -> Self {
         Self {
@@ -70,5 +64,29 @@ impl OfflinePush {
     pub fn set_apns_info(&mut self, apns_info: Option<Apns>) -> &mut Self {
         self.apns_info = apns_info;
         self
+    }
+
+    pub fn push_flag(&self) -> Option<i32> {
+        self.push_flag
+    }
+
+    pub fn title(&self) -> Option<&String> {
+        self.title.as_ref()
+    }
+
+    pub fn desc(&self) -> Option<&String> {
+        self.desc.as_ref()
+    }
+
+    pub fn ext(&self) -> Option<&String> {
+        self.ext.as_ref()
+    }
+
+    pub fn android_info(&self) -> Option<&Android> {
+        self.android_info.as_ref()
+    }
+
+    pub fn apns_info(&self) -> Option<&Apns> {
+        self.apns_info.as_ref()
     }
 }

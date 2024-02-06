@@ -18,6 +18,14 @@ impl KeyValuePascal {
             value: value.as_ref().to_string(),
         }
     }
+
+    pub fn key(&self) -> &str {
+        &self.key
+    }
+
+    pub fn value(&self) -> &str {
+        &self.value
+    }
 }
 
 #[skip_serializing_none]
@@ -36,5 +44,13 @@ impl KeyValueLower {
             key: key.as_ref().to_string(),
             value: value.as_ref().to_string(),
         }
+    }
+
+    pub fn key(&self) -> &str {
+        &self.key
+    }
+
+    pub fn value(&self) -> &str {
+        &self.value
     }
 }

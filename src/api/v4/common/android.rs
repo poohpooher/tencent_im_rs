@@ -112,4 +112,40 @@ impl Android {
         self.huawei_category = huawei_category.map(|s| s.as_ref().to_string());
         self
     }
+
+    pub fn sound(&self) -> Option<&str> {
+        self.sound.as_deref()
+    }
+
+    pub fn oppo_channel_id(&self) -> Option<&str> {
+        self.oppo_channel_id.as_deref()
+    }
+
+    pub fn xiaomi_channel_id(&self) -> Option<&str> {
+        self.xiaomi_channel_id.as_deref()
+    }
+
+    pub fn huawei_channel_id(&self) -> Option<&str> {
+        self.huawei_channel_id.as_deref()
+    }
+
+    pub fn google_channel_id(&self) -> Option<&str> {
+        self.google_channel_id.as_deref()
+    }
+
+    pub fn vivo_classification(&self) -> Option<u32> {
+        self.vivo_classification
+    }
+
+    pub fn huawei_importance(&self) -> Option<&str> {
+        self.huawei_importance.as_deref()
+    }
+
+    pub fn ext_as_huawei_intent_param(&self) -> Option<u32> {
+        self.ext_as_huawei_intent_param
+    }
+
+    pub fn huawei_category(&self) -> Option<&str> {
+        self.huawei_category.as_deref()
+    }
 }

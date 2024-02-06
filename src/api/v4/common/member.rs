@@ -46,12 +46,6 @@ pub struct Member {
     result: Option<u32>,
 }
 
-impl Default for Member {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 impl Member {
     pub fn new() -> Self {
         Self {
@@ -131,5 +125,53 @@ impl Member {
     pub fn set_result(&mut self, result: Option<u32>) -> &mut Self {
         self.result = result;
         self
+    }
+
+    pub fn member_account(&self) -> Option<&str> {
+        self.member_account.as_deref()
+    }
+
+    pub fn role(&self) -> Option<&MemberRole> {
+        self.role.as_ref()
+    }
+
+    pub fn app_member_defined_data(&self) -> Option<&Vec<KeyValuePascal>> {
+        self.app_member_defined_data.as_ref()
+    }
+
+    pub fn join_time(&self) -> Option<u64> {
+        self.join_time
+    }
+
+    pub fn last_send_msg_time(&self) -> Option<u64> {
+        self.last_send_msg_time
+    }
+
+    pub fn msg_flag(&self) -> Option<&MsgFlag> {
+        self.msg_flag.as_ref()
+    }
+
+    pub fn msg_seq(&self) -> Option<u32> {
+        self.msg_seq
+    }
+
+    pub fn mute_until(&self) -> Option<u64> {
+        self.mute_until
+    }
+
+    pub fn next_msg_seq(&self) -> Option<u32> {
+        self.next_msg_seq
+    }
+
+    pub fn name_card(&self) -> Option<&String> {
+        self.name_card.as_ref()
+    }
+
+    pub fn gross_topic_read_seq(&self) -> Option<u32> {
+        self.gross_topic_read_seq
+    }
+
+    pub fn result(&self) -> Option<u32> {
+        self.result
     }
 }
