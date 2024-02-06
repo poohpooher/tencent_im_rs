@@ -23,7 +23,7 @@ pub struct GetAppIdGroupListRequest {
 
     #[serde(rename = "Next")]
     /// 이전 요청에서 반환된 Next 필드
-    next: Option<u32>,
+    next: Option<u64>,
 
     #[serde(rename = "GroupType")]
     /// 그룹 타입
@@ -50,7 +50,7 @@ impl GetAppIdGroupListRequest {
         self
     }
 
-    pub fn set_next(&mut self, next: Option<u32>) -> &mut Self {
+    pub fn set_next(&mut self, next: Option<u64>) -> &mut Self {
         self.next = next;
         self
     }
