@@ -1,6 +1,6 @@
 [package]
 name = "tencent_im_rs"
-version = "1.0.3"
+version = "1.0.4"
 edition = "2021"
 authors = ["poohpooher <poohpooher@gmail.com>"]
 description = "A Tencent IM Rest API for Rust"
@@ -13,22 +13,22 @@ crate-type = ["lib"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.75"
-base64 = "0.21.5"
-bitflags = "2.4.2"
-bitflags_serde_shim = "0.2.4"
-flate2 = "1.0.28"
+anyhow = "1.0.87"
+base64 = "0.21.7"
+bitflags = "2.6.0"
+bitflags_serde_shim = "0.2.5"
+flate2 = "1.0.33"
 hmac = "0.12.1"
-log = "0.4.20"
-paste = "1.0.14"
+log = "0.4.22"
+paste = "1.0.15"
 rand = "0.8.5"
-reqwest = { version = "0.11.22", features = ["json"] }
-serde = { version = "1.0.193", features = ["derive"] }
-serde_json = "1.0.108"
-serde_repr = "0.1.18"
-serde_with = "3.4.0"
+reqwest = { version = "0.11.27", features = ["json"] }
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+serde_repr = "0.1.19"
+serde_with = "3.9.0"
 sha2 = "0.10.8"
 strum_macros = "0.25.3"
 
 [dev-dependencies]
-tokio = { version = "1.35.1", features = ["rt", "macros"] }
+tokio = { version = "1.40.0", features = ["rt", "macros"] }
